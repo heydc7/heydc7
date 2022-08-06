@@ -14,7 +14,7 @@
 
 
 ## ABOUT ME
-Self Starter & Quick Learner, Passionate about Coding & Technology as well as shipping my ideas into apps, Encouraging others to code through Coding Blogs & my YouTube Channel.
+Self Starter & Quick Learner, Passionate about CyberSecurity as well as shipping my ideas into apps, Encouraging others to code through Coding Blogs & my YouTube Channel.
 
 - ☀️ Cyber Security Enthusiast
 - 🍎 WWDC 2021 & 2022 Scholar
