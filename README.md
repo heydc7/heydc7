@@ -19,7 +19,6 @@ Self Starter & Quick Learner, Passionate about CyberSecurity as well as shipping
 - ☀️ Cyber Security Enthusiast
 - 🍎 WWDC 2021 & 2022 Scholar
 - ⚡️ Auth0 Ambassador
-- 🎬 YouTuber @ [Coding Potter](https://www.youtube.com/codingpotter)
 - 🌟 Microsoft Learn Student Ambassador
 - 👨🏻‍💻 Indie App Developer
 
