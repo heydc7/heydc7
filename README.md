@@ -16,7 +16,7 @@
 ## ABOUT ME
 Self Starter & Quick Learner, Passionate about CyberSecurity as well as shipping my ideas into apps, Encouraging others to code through Coding Blogs & my YouTube Channel.
 
-- ☀️ Cyber Security Enthusiast
+- ☀️ CyberSec : Bug Hunter
 - 🍎 WWDC 2021 & 2022 Scholar
 - ⚡️ Auth0 Ambassador
 - 🌟 Microsoft Learn Student Ambassador
