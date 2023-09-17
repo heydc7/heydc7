@@ -7,9 +7,8 @@
 [![PolyWork Badge](https://img.shields.io/badge/-heydc7-blueviolet?style=plastic-square&logo=polywork&logoColor=white&link=https://www.polywork.com/heydc7)](https://www.polywork.com/heydc7)
 [![Instagram Badge](https://img.shields.io/badge/-heydc7-orange?style=plastic-square&logo=instagram&logoColor=white&link=https://instagram.com/heydc7/)](https://instagram.com/heydc7)
 [![Youtube Badge](https://img.shields.io/badge/-codingpotter-red?style=plastic-square&logo=youtube&logoColor=white&link=https://www.youtube.com/codingpotter)](https://www.youtube.com/codingpotter)
-
 [![BMC Badge](https://img.shields.io/badge/-BuyMeCoffee-FFDD00?style=plastic-square&logo=buy-me-a-coffee&logoColor=black&link=https://www.buymeacoffee.com/codingpotter)](https://www.buymeacoffee.com/codingpotter)
-![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=heydc7)
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fheydc7%2F&label=Visitors&countColor=%23263759&style=flat)
 
 
 ## ABOUT ME
