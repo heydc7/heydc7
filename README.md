@@ -29,6 +29,6 @@ Self Starter & Quick Learner, Passionate about CyberSecurity as well as shipping
 <a href="https://heydc7.github.io/UnmutifyApp/"><img align="center" src="https://raw.githubusercontent.com/heydc7/heydc7/main/images/card5.png"/></a>  | <a href="https://play.google.com/store/apps/details?id=com.dhanrajchavan.vraspirants"><img align="center" src="https://raw.githubusercontent.com/heydc7/heydc7/main/images/card6.png"/></a>
 
 
-## MY GIT STATS
-<img src="https://github-readme-stats.vercel.app/api?username=heydc7&&show_icons=true&count_private=true&theme=radical"/>|<img src="https://github-readme-streak-stats.herokuapp.com/?user=heydc7&theme=radical"/>|
-|---|---|
+## My latest blogs
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
