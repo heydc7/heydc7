@@ -23,7 +23,7 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 ## My latest blogs
 <!-- BLOG-POST-LIST:START -->
 - [SunshineCTF23: BeepBoop &lpar;Cryptography&rpar;](https://dhanraj.netlify.app/writeups/sunshine-ctf-2023/crypto/)
-- [SunshineCTF23: BeepBoop Blog &lpar;Web&rpar;](https://dhanraj.netlify.app/writeups/sunshine-ctf-2023/web/)
+- [SunshineCTF23: BeepBoop Blog &amp; Hotdog Stand &lpar;Web&rpar;](https://dhanraj.netlify.app/writeups/sunshine-ctf-2023/web/)
 - [SunshineCTF23: DDR &lpar;Scripting&rpar;](https://dhanraj.netlify.app/writeups/sunshine-ctf-2023/scripting/)
 - [SunshineCTF23: Dill &lpar;Reversing&rpar;](https://dhanraj.netlify.app/writeups/sunshine-ctf-2023/reversing/)
 - [Exploring newsubs: Guide to Effortless Subdomain Discovery](https://dhanraj.netlify.app/blog/exploring-newsubs/)
