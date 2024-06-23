@@ -22,11 +22,11 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 
 ## My latest blogs
 <!-- BLOG-POST-LIST:START -->
-- [Intro to DVWA](https://dhanraj.netlify.app/writeups/dvwa/intro/)
-- [Protecting Camp &lpar;Web&rpar;](https://dhanraj.netlify.app/writeups/snyk-ctf-2023/protecting-camp/)
-- [Repo Recon &lpar;Web&rpar;](https://dhanraj.netlify.app/writeups/snyk-ctf-2023/repo-recon/)
-- [SunshineCTF23: BeepBoop &lpar;Cryptography&rpar;](https://dhanraj.netlify.app/writeups/sunshine-ctf-2023/crypto/)
-- [SunshineCTF23: BeepBoop Blog &amp; Hotdog Stand &lpar;Web&rpar;](https://dhanraj.netlify.app/writeups/sunshine-ctf-2023/web/)
+- [Chapter 1](https://dhanraj.netlify.app/writeups/security-plus/chapter1/)
+- [Chapter 2](https://dhanraj.netlify.app/writeups/security-plus/chapter2/)
+- [Chapter 3](https://dhanraj.netlify.app/writeups/security-plus/chapter3/)
+- [Chapter 4](https://dhanraj.netlify.app/writeups/security-plus/chapter4/)
+- [Chapter 5](https://dhanraj.netlify.app/writeups/security-plus/chapter5/)
 <!-- BLOG-POST-LIST:END -->
 
 ## MY APPS
