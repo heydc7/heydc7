@@ -22,11 +22,11 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 
 ## My latest blogs
 <!-- BLOG-POST-LIST:START -->
-- [Chapter 1: Attacks, Threats, and Vulnerabilities](https://dhanraj.netlify.app/writeups/security-plus/chapter1/)
-- [Chapter 2: Architecture and Design](https://dhanraj.netlify.app/writeups/security-plus/chapter2/)
-- [Chapter 3: Implementation](https://dhanraj.netlify.app/writeups/security-plus/chapter3/)
-- [Chapter 4: Operations and Incident Response](https://dhanraj.netlify.app/writeups/security-plus/chapter4/)
-- [Chapter 5: Governance, Risk, and Compliance](https://dhanraj.netlify.app/writeups/security-plus/chapter5/)
+- [Chapter 1: Engagement Management](https://dhanraj.netlify.app/writeups/pentest-plus/chapter1/)
+- [Chapter 2: Reconnaissance and Enumeration](https://dhanraj.netlify.app/writeups/pentest-plus/chapter2/)
+- [Chapter 3: Vulnerability Discovery and Analysis](https://dhanraj.netlify.app/writeups/pentest-plus/chapter3/)
+- [Chapter 4: Attacks and Exploits](https://dhanraj.netlify.app/writeups/pentest-plus/chapter4/)
+- [Chapter 5: Post-exploitation and Lateral Movement](https://dhanraj.netlify.app/writeups/pentest-plus/chapter5/)
 <!-- BLOG-POST-LIST:END -->
 
 ## MY APPS
