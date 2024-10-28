@@ -22,11 +22,11 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 
 ## My latest blogs
 <!-- BLOG-POST-LIST:START -->
+- [EJPT Notes](https://dhanraj.netlify.app/writeups/ejpt/notes/)
+- [Intro to EJPT](https://dhanraj.netlify.app/writeups/ejpt/intro/)
 - [Chapter 1: Engagement Management](https://dhanraj.netlify.app/writeups/pentest-plus/chapter1/)
 - [Chapter 2: Reconnaissance and Enumeration](https://dhanraj.netlify.app/writeups/pentest-plus/chapter2/)
 - [Chapter 3: Vulnerability Discovery and Analysis](https://dhanraj.netlify.app/writeups/pentest-plus/chapter3/)
-- [Chapter 4: Attacks and Exploits](https://dhanraj.netlify.app/writeups/pentest-plus/chapter4/)
-- [Chapter 5: Post-exploitation and Lateral Movement](https://dhanraj.netlify.app/writeups/pentest-plus/chapter5/)
 <!-- BLOG-POST-LIST:END -->
 
 ## MY APPS
