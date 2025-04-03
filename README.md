@@ -21,11 +21,11 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 
 ## My latest blogs
 <!-- BLOG-POST-LIST:START -->
+- [ProxLink](https://dhanraj.netlify.app/projects/proxlink/)
 - [VIVID CTF](https://dhanraj.netlify.app/writeups/vivid-ctf-finals-2024/intro/)
 - [Day 1: Jeopardy-style CTF](https://dhanraj.netlify.app/writeups/vivid-ctf-finals-2024/day1/)
 - [Day 2: Red Team](https://dhanraj.netlify.app/writeups/vivid-ctf-finals-2024/day2/)
 - [Day 3: Blue Team](https://dhanraj.netlify.app/writeups/vivid-ctf-finals-2024/day3/)
-- [Day 4: King of the Hill](https://dhanraj.netlify.app/writeups/vivid-ctf-finals-2024/day4/)
 <!-- BLOG-POST-LIST:END -->
 
 ## MY APPS
