@@ -16,4 +16,4 @@ jobs:
       - name: Pull in dev.to posts
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          feed_list: "https://dhanrajchavan.com/index.xml"
+          feed_list: "https://dhanraj.pages.dev/index.xml"
