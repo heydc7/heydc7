@@ -21,11 +21,11 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 
 ## My latest blogs
 <!-- BLOG-POST-LIST:START -->
+- [EagleEye: Security Alert System](https://dhanrajchavan.com/projects/eagleeye/)
 - [ProxLink](https://dhanrajchavan.com/projects/proxlink/)
 - [VIVID CTF](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/intro/)
 - [Day 1: Jeopardy-style CTF](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day1/)
 - [Day 2: Red Team](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day2/)
-- [Day 3: Blue Team](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day3/)
 <!-- BLOG-POST-LIST:END -->
 
 ## MY APPS
