@@ -21,6 +21,7 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 
 ## My latest blogs
 <!-- BLOG-POST-LIST:START -->
+- [CryptoPad: 3-Party Asynchronous Communication](https://dhanrajchavan.com/projects/cryptopad/)
 - [EagleEye: Security Alert System](https://dhanrajchavan.com/projects/eagleeye/)
 - [ProxLink](https://dhanrajchavan.com/projects/proxlink/)
 - [VIVID CTF](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/intro/)
@@ -30,7 +31,6 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 - [Day 4: King of the Hill](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day4/)
 - [EJPT Notes](https://dhanrajchavan.com/writeups/ejpt/notes/)
 - [Intro to EJPT](https://dhanrajchavan.com/writeups/ejpt/intro/)
-- [Chapter 1: Engagement Management](https://dhanrajchavan.com/writeups/pentest-plus/chapter1/)
 <!-- BLOG-POST-LIST:END -->
 
 ## MY APPS
