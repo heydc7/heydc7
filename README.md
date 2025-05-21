@@ -21,6 +21,7 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 
 ## My latest blogs
 <!-- BLOG-POST-LIST:START -->
+- [AWS Certified Cloud Practitioner](https://dhanrajchavan.com/writeups/aws/cloudpractitioner/)
 - [CryptoPad: 3-Party Asynchronous Communication](https://dhanrajchavan.com/projects/cryptopad/)
 - [EagleEye: Security Alert System](https://dhanrajchavan.com/projects/eagleeye/)
 - [ProxLink](https://dhanrajchavan.com/projects/proxlink/)
@@ -30,7 +31,6 @@ I am a self-starter and quick learner, passionate about CyberSecurity and shippi
 - [Day 3: Blue Team](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day3/)
 - [Day 4: King of the Hill](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day4/)
 - [EJPT Notes](https://dhanrajchavan.com/writeups/ejpt/notes/)
-- [Intro to EJPT](https://dhanrajchavan.com/writeups/ejpt/intro/)
 <!-- BLOG-POST-LIST:END -->
 
 ## MY APPS
