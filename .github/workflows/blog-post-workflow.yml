@@ -27,7 +27,7 @@ jobs:
 
       - name: Build markdown blocks
         run: |
-          # Normalize JSON: handle JSON Feed (.items) or PaperMod array
+          # Normalize JSON: JSON Feed (.items) or PaperMod array
           jq 'if type=="object" and has("items") then .items else . end' /tmp/index.json > /tmp/items.json
 
           mklist () {
@@ -47,8 +47,8 @@ jobs:
           }
 
           mklist_writeups () {
-            # WRITEUPS: keep feed order (latest-first), dedupe without sorting,
-            # link to folder root, and replace "-" with space in the slug shown.
+            # Keep feed order (latest-first), dedupe without sorting,
+            # show slug with "-" → " ", link to folder root.
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
               reduce ( .[]
@@ -59,14 +59,11 @@ jobs:
                             | gsub("-"; " ")
                           ),
                     link: ((.permalink // .url)
-                            | capture("(?<link>.*?/writeups/[^/]+)/")
+                            | capture("(?<link>.*?/writeups/[^/]+)")
                             | .link)
                   }
               ) as $item ( [];
-                if any(.slug == $item.slug)
-                then .
-                else . + [$item]
-                end
+                if (map(.slug) | index($item.slug)) then . else . + [$item] end
               )
               | .[0:$limit]
               | map("* [\(.slug)](\(.link)/)")
@@ -84,29 +81,37 @@ jobs:
             mklist "/projects/" 20 > /tmp/projects.md
           fi
 
-      - name: Inject into README
+      - name: Inject into README (safe)
         run: |
-          inject () {
-            local tag="$1" file="$2"
-            local start="<!-- ${tag}:START -->"
-            local end="<!-- ${tag}:END -->"
+          python3 - <<'PY'
+          import os, re, pathlib, sys
 
-            if ! grep -qF "$start" README.md || ! grep -qF "$end" README.md; then
-              echo "::warning::Markers for $tag not found in README.md; skipping."
-              return 0
-            fi
+          def inject(tag: str, tmp_path: str):
+            p = pathlib.Path("README.md")
+            if not p.exists():
+              print("::error::README.md not found")
+              sys.exit(1)
 
-            awk -v s="$start" -v e="$end" -v f="$file" '
-              $0==s { print; system("cat " f); skip=1; next }
-              $0==e { skip=0 }
-              !skip
-            ' README.md > README.new
-            mv README.new README.md
-          }
+            if not os.path.exists(tmp_path):
+              return  # nothing to inject for this tag
 
-          [ -f /tmp/blog.md ] && inject "BLOG" /tmp/blog.md
-          [ -f /tmp/writeups.md ] && inject "WRITEUPS" /tmp/writeups.md
-          [ -f /tmp/projects.md ] && inject "PROJECTS" /tmp/projects.md
+            start = f"<!-- {tag}:START -->"
+            end   = f"<!-- {tag}:END -->"
+
+            text = p.read_text(encoding="utf-8")
+            if start not in text or end not in text:
+              print(f"::warning::Markers for {tag} not found in README.md; skipping.")
+              return
+
+            block = pathlib.Path(tmp_path).read_text(encoding="utf-8").strip()
+            pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
+            new_text = pattern.sub(start + "\n" + block + "\n" + end, text)
+            p.write_text(new_text, encoding="utf-8")
+
+          inject("BLOG", "/tmp/blog.md")
+          inject("WRITEUPS", "/tmp/writeups.md")
+          inject("PROJECTS", "/tmp/projects.md")
+          PY
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
