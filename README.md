@@ -19,10 +19,10 @@ I am a self-starter and quick learner, passionate about CyberSecurity.
 
 ## My latest blogs
 <!-- BLOG:START -->
-* [Intro to my blog](https://dhanrajchavan.com/blog/intro/)
-* [Magnify: A recon tool to extract sensitive info](https://dhanrajchavan.com/blog/intro-to-magnify/)
-* [Parameter Tampering with Tinker](https://dhanrajchavan.com/blog/parameter-tampering-with-tinker/)
 * [Exploring newsubs: Guide to Effortless Subdomain Discovery](https://dhanrajchavan.com/blog/exploring-newsubs/)
+* [Parameter Tampering with Tinker](https://dhanrajchavan.com/blog/parameter-tampering-with-tinker/)
+* [Magnify: A recon tool to extract sensitive info](https://dhanrajchavan.com/blog/intro-to-magnify/)
+* [Intro to my blog](https://dhanrajchavan.com/blog/intro/)
 <!-- BLOG:END -->
 
 ## My Writeups
@@ -40,16 +40,16 @@ I am a self-starter and quick learner, passionate about CyberSecurity.
 
 ## My Projects
 <!-- PROJECTS:START -->
-* [LinkSum](https://dhanrajchavan.com/projects/linksum/)
-* [Countio](https://dhanrajchavan.com/projects/countio/)
-* [CryptoCam](https://dhanrajchavan.com/projects/cryptocam/)
-* [MyMeets](https://dhanrajchavan.com/projects/mymeets/)
-* [InfyTracer](https://dhanrajchavan.com/projects/infytracer/)
-* [Unmutify](https://dhanrajchavan.com/projects/unmutify/)
-* [SilentPhish](https://dhanrajchavan.com/projects/silentphish/)
-* [Magnify](https://dhanrajchavan.com/projects/magnify/)
-* [Tinker](https://dhanrajchavan.com/projects/tinker/)
+* [CryptoPad: 3-Party Asynchronous Communication](https://dhanrajchavan.com/projects/cryptopad/)
+* [EagleEye: Security Alert System](https://dhanrajchavan.com/projects/eagleeye/)
+* [ProxLink](https://dhanrajchavan.com/projects/proxlink/)
 * [Newsubs](https://dhanrajchavan.com/projects/newsubs/)
+* [Tinker](https://dhanrajchavan.com/projects/tinker/)
+* [Magnify](https://dhanrajchavan.com/projects/magnify/)
+* [SilentPhish](https://dhanrajchavan.com/projects/silentphish/)
+* [Unmutify](https://dhanrajchavan.com/projects/unmutify/)
+* [InfyTracer](https://dhanrajchavan.com/projects/infytracer/)
+* [MyMeets](https://dhanrajchavan.com/projects/mymeets/)
 <!-- PROJECTS:END -->
 
 
