@@ -27,15 +27,15 @@ I am a self-starter and quick learner, passionate about CyberSecurity.
 
 ## My Writeups
 <!-- WRITEUPS:START -->
-* aws
-* dvwa
-* ejpt
-* pentest-plus
-* security-plus
-* securityx
-* snyk-ctf-2023
-* sunshine-ctf-2023
-* vivid-ctf-finals-2024
+* [aws](https://dhanrajchavan.com/writeups/aws/)
+* [dvwa](https://dhanrajchavan.com/writeups/dvwa/)
+* [ejpt](https://dhanrajchavan.com/writeups/ejpt/)
+* [pentest-plus](https://dhanrajchavan.com/writeups/pentest-plus/)
+* [security-plus](https://dhanrajchavan.com/writeups/security-plus/)
+* [securityx](https://dhanrajchavan.com/writeups/securityx/)
+* [snyk-ctf-2023](https://dhanrajchavan.com/writeups/snyk-ctf-2023/)
+* [sunshine-ctf-2023](https://dhanrajchavan.com/writeups/sunshine-ctf-2023/)
+* [vivid-ctf-finals-2024](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/)
 <!-- WRITEUPS:END -->
 
 ## My Projects
