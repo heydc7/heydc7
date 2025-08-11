@@ -68,13 +68,13 @@ jobs:
           }
 
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "blog" ]; then
-            mklist "/blog/" 10 > /tmp/blog.md
+            mklist "/blog/" 20 > /tmp/blog.md
           fi
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "writeups" ]; then
             mklist_writeups "/writeups/" 20 > /tmp/writeups.md
           fi
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "projects" ]; then
-            mklist "/projects/" 10 > /tmp/projects.md
+            mklist "/projects/" 20 > /tmp/projects.md
           fi
 
       - name: Inject into README
