@@ -9,11 +9,7 @@ on:
         required: true
         default: "all"
         type: choice
-        options:
-          - all
-          - blog
-          - writeups
-          - projects
+        options: [all, blog, writeups, projects]
 
 permissions:
   contents: write
@@ -26,15 +22,16 @@ jobs:
 
       - name: Fetch index.json
         run: |
-          FEED_URL="https://dhanraj.pages.dev/index.json"
+          FEED_URL="https://dhanraj.pages.dev/index.json"  # or https://dhanrajchavan.com/index.json
           curl -sSL "$FEED_URL" -o /tmp/index.json
 
       - name: Build markdown blocks
         run: |
-          # Normalize JSON
+          # Normalize JSON: handle JSON Feed (.items) or PaperMod array
           jq 'if type=="object" and has("items") then .items else . end' /tmp/index.json > /tmp/items.json
 
           mklist () {
+            # Generic list for blog/projects: Title → Link
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
               [ .[] 
@@ -51,17 +48,18 @@ jobs:
           }
 
           mklist_writeups () {
+            # WRITEUPS: show only the folder slug, but hyperlink to the folder root
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
               [ .[]
                 | select((.permalink // .url) | tostring | contains($path))
-                | .permalink // .url
-                | capture(".*/writeups/(?<slug>[^/]+)/")
-                | .slug
+                | { slug: ((.permalink // .url) | capture(".*/writeups/(?<slug>[^/]+)/") | .slug),
+                    link: ((.permalink // .url) | capture("(?<link>.*?/writeups/[^/]+)/") | .link)
+                  }
               ]
-              | unique
+              | unique_by(.slug)
               | .[0:$limit]
-              | map("* \(. )")
+              | map("* [\(.slug)](\(.link)/)")
               | join("\n")
             ' /tmp/items.json
           }
@@ -70,7 +68,7 @@ jobs:
             mklist "/blog/" 10 > /tmp/blog.md
           fi
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "writeups" ]; then
-            mklist_writeups "/writeups/" 10 > /tmp/writeups.md
+            mklist_writeups "/writeups/" 20 > /tmp/writeups.md
           fi
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "projects" ]; then
             mklist "/projects/" 10 > /tmp/projects.md
@@ -88,17 +86,11 @@ jobs:
               }' README.md > README.new && mv README.new README.md
           }
 
-          if [ -f /tmp/blog.md ]; then
-            inject "BLOG" /tmp/blog.md
-          fi
-          if [ -f /tmp/writeups.md ]; then
-            inject "WRITEUPS" /tmp/writeups.md
-          fi
-          if [ -f /tmp/projects.md ]; then
-            inject "PROJECTS" /tmp/projects.md
-          fi
+          [ -f /tmp/blog.md ] && inject "BLOG" /tmp/blog.md
+          [ -f /tmp/writeups.md ] && inject "WRITEUPS" /tmp/writeups.md
+          [ -f /tmp/projects.md ] && inject "PROJECTS" /tmp/projects.md
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(readme): update ${{ github.event.inputs.section }} from index.json"
+          commit_message: "chore(readme): update ${{ github.event.inputs.section || 'all' }} from index.json"
