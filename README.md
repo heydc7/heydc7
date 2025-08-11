@@ -26,15 +26,14 @@ I am a self-starter and quick learner, passionate about CyberSecurity.
 
 ## My Writeups
 <!-- WRITEUPS:START -->
-* [aws](https://dhanrajchavan.com/writeups/aws/)
-* [vivid-ctf-finals-2024](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/)
-* [ejpt](https://dhanrajchavan.com/writeups/ejpt/)
-* [pentest-plus](https://dhanrajchavan.com/writeups/pentest-plus/)
-* [securityx](https://dhanrajchavan.com/writeups/securityx/)
-* [security-plus](https://dhanrajchavan.com/writeups/security-plus/)
-* [dvwa](https://dhanrajchavan.com/writeups/dvwa/)
-* [snyk-ctf-2023](https://dhanrajchavan.com/writeups/snyk-ctf-2023/)
-* [sunshine-ctf-2023](https://dhanrajchavan.com/writeups/sunshine-ctf-2023/)
+* [A](https://dhanrajchavan.com/writeups/aws/)
+* [V C F 2](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/)
+* [E](https://dhanrajchavan.com/writeups/ejpt/)
+* [P P](https://dhanrajchavan.com/writeups/pentest-plus/)
+* [S](https://dhanrajchavan.com/writeups/securityx/)
+* [S P](https://dhanrajchavan.com/writeups/security-plus/)
+* [D](https://dhanrajchavan.com/writeups/dvwa/)
+* [S C 2](https://dhanrajchavan.com/writeups/snyk-ctf-2023/)
 <!-- WRITEUPS:END -->
 
 ## My Projects
@@ -49,9 +48,6 @@ I am a self-starter and quick learner, passionate about CyberSecurity.
 * [Unmutify](https://dhanrajchavan.com/projects/unmutify/)
 * [InfyTracer](https://dhanrajchavan.com/projects/infytracer/)
 * [MyMeets](https://dhanrajchavan.com/projects/mymeets/)
-* [CryptoCam](https://dhanrajchavan.com/projects/cryptocam/)
-* [Countio](https://dhanrajchavan.com/projects/countio/)
-* [LinkSum](https://dhanrajchavan.com/projects/linksum/)
 <!-- PROJECTS:END -->
 
 
