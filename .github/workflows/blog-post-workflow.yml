@@ -34,7 +34,7 @@ jobs:
             # Generic list for blog/projects
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
-              [ .[] 
+              [ .[]
                 | select((.permalink // .url) | tostring | contains($path))
                 | {title: (.title // .name),
                    link:  (.permalink // .url)
@@ -47,18 +47,25 @@ jobs:
           }
 
           mklist_writeups () {
-            # WRITEUPS: keep latest-first from feed, dedupe without sorting
+            # WRITEUPS: keep feed order (latest-first), dedupe without sorting,
+            # link to folder root, and replace "-" with space in the slug shown.
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
-              reduce ( .[] 
+              reduce ( .[]
                 | select((.permalink // .url) | tostring | contains($path))
-                | { slug: ((.permalink // .url) | capture(".*/writeups/(?<slug>[^/]+)/") | .slug),
-                    link: ((.permalink // .url) | capture("(?<link>.*?/writeups/[^/]+)/") | .link)
+                | { slug: ((.permalink // .url)
+                            | capture(".*/writeups/(?<slug>[^/]+)/")
+                            | .slug
+                            | gsub("-"; " ")
+                          ),
+                    link: ((.permalink // .url)
+                            | capture("(?<link>.*?/writeups/[^/]+)/")
+                            | .link)
                   }
-              ) as $item ( []; 
-                if any(.slug == $item.slug) 
-                then . 
-                else . + [$item] 
+              ) as $item ( [];
+                if any(.slug == $item.slug)
+                then .
+                else . + [$item]
                 end
               )
               | .[0:$limit]
@@ -81,12 +88,20 @@ jobs:
         run: |
           inject () {
             local tag="$1" file="$2"
-            awk -v tag="$tag" -v repl="$(sed 's/[&/\]/\\&/g' "$file")" '
-              BEGIN{start="<!-- " tag ":START -->"; end="<!-- " tag ":END -->"}
-              { if ($0==start){print; print repl; skip=1; next}
-                if ($0==end){skip=0}
-                if (!skip) print
-              }' README.md > README.new && mv README.new README.md
+            local start="<!-- ${tag}:START -->"
+            local end="<!-- ${tag}:END -->"
+
+            if ! grep -qF "$start" README.md || ! grep -qF "$end" README.md; then
+              echo "::warning::Markers for $tag not found in README.md; skipping."
+              return 0
+            fi
+
+            awk -v s="$start" -v e="$end" -v f="$file" '
+              $0==s { print; system("cat " f); skip=1; next }
+              $0==e { skip=0 }
+              !skip
+            ' README.md > README.new
+            mv README.new README.md
           }
 
           [ -f /tmp/blog.md ] && inject "BLOG" /tmp/blog.md
