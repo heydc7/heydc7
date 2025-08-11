@@ -37,11 +37,10 @@ jobs:
               [ .[] 
                 | select((.permalink // .url) | tostring | contains($path))
                 | {title: (.title // .name),
-                   link:  (.permalink // .url),
-                   date:  (.date_published // .date // .publishDate // .dateFormatted // .lastmod // "")
+                   link:  (.permalink // .url)
                   }
               ]
-              | sort_by(.date) | reverse | .[0:$limit]
+              | .[0:$limit]
               | map("* [\(.title)](\(.link))")
               | join("\n")
             ' /tmp/items.json
