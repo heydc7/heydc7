@@ -3,6 +3,18 @@ on:
   schedule:
     - cron: "0 * * * *"   # hourly
   workflow_dispatch:
+    inputs:
+      section:
+        description: "Which section to update?"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - blog
+          - writeups
+          - projects
+
 permissions:
   contents: write
 
@@ -14,18 +26,17 @@ jobs:
 
       - name: Fetch index.json
         run: |
-          FEED_URL="https://dhanraj.pages.dev/index.json"  # or https://dhanrajchavan.com/index.json
+          FEED_URL="https://dhanraj.pages.dev/index.json"
           curl -sSL "$FEED_URL" -o /tmp/index.json
 
       - name: Build markdown blocks
         run: |
-          # Normalize: support JSON Feed (.items) or PaperMod array
+          # Normalize JSON: handle PaperMod array or JSON Feed
           jq 'if type=="object" and has("items") then .items else . end' /tmp/index.json > /tmp/items.json
 
           mklist () {
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
-              # Keep only items under the path
               [ .[] 
                 | select((.permalink // .url) | tostring | contains($path))
                 | {title: (.title // .name),
@@ -33,16 +44,21 @@ jobs:
                    date:  (.date_published // .date // .publishDate // .dateFormatted // .lastmod // "")
                   }
               ]
-              # Sort by date desc if available
               | sort_by(.date) | reverse | .[0:$limit]
               | map("* [\(.title)](\(.link))")
               | join("\n")
             ' /tmp/items.json
           }
 
-          mklist "/blog/" 10      > /tmp/blog.md
-          mklist "/writeups/" 10  > /tmp/writeups.md
-          mklist "/projects/" 10  > /tmp/projects.md
+          if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "blog" ]; then
+            mklist "/blog/" 10 > /tmp/blog.md
+          fi
+          if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "writeups" ]; then
+            mklist "/writeups/" 10 > /tmp/writeups.md
+          fi
+          if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "projects" ]; then
+            mklist "/projects/" 10 > /tmp/projects.md
+          fi
 
       - name: Inject into README
         run: |
@@ -55,11 +71,18 @@ jobs:
                 if (!skip) print
               }' README.md > README.new && mv README.new README.md
           }
-          inject "BLOG"     /tmp/blog.md
-          inject "WRITEUPS" /tmp/writeups.md
-          inject "PROJECTS" /tmp/projects.md
+
+          if [ -f /tmp/blog.md ]; then
+            inject "BLOG" /tmp/blog.md
+          fi
+          if [ -f /tmp/writeups.md ]; then
+            inject "WRITEUPS" /tmp/writeups.md
+          fi
+          if [ -f /tmp/projects.md ]; then
+            inject "PROJECTS" /tmp/projects.md
+          fi
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(readme): update blog/writeups/projects from index.json"
+          commit_message: "chore(readme): update ${{ github.event.inputs.section }} from index.json"
