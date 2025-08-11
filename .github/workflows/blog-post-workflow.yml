@@ -27,11 +27,9 @@ jobs:
 
       - name: Build markdown blocks
         run: |
-          # Normalize JSON: handle JSON Feed (.items) or PaperMod array
           jq 'if type=="object" and has("items") then .items else . end' /tmp/index.json > /tmp/items.json
 
           mklist () {
-            # Generic list for blog/projects
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
               [ .[] 
@@ -47,13 +45,21 @@ jobs:
           }
 
           mklist_writeups () {
-            # WRITEUPS: keep latest-first from feed, dedupe without sorting
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
               reduce ( .[] 
                 | select((.permalink // .url) | tostring | contains($path))
-                | { slug: ((.permalink // .url) | capture(".*/writeups/(?<slug>[^/]+)/") | .slug),
-                    link: ((.permalink // .url) | capture("(?<link>.*?/writeups/[^/]+)/") | .link)
+                | { slug: ((.permalink // .url) 
+                            | capture(".*/writeups/(?<slug>[^/]+)/") 
+                            | .slug
+                            | gsub("-"; " ")
+                            | split(" ")
+                            | map(.[:1] | ascii_upcase + .[1:])
+                            | join(" ")
+                          ),
+                    link: ((.permalink // .url) 
+                            | capture("(?<link>.*?/writeups/[^/]+)/") 
+                            | .link)
                   }
               ) as $item ( []; 
                 if any(.slug == $item.slug) 
@@ -68,13 +74,13 @@ jobs:
           }
 
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "blog" ]; then
-            mklist "/blog/" 20 > /tmp/blog.md
+            mklist "/blog/" 10 > /tmp/blog.md
           fi
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "writeups" ]; then
             mklist_writeups "/writeups/" 20 > /tmp/writeups.md
           fi
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "projects" ]; then
-            mklist "/projects/" 20 > /tmp/projects.md
+            mklist "/projects/" 10 > /tmp/projects.md
           fi
 
       - name: Inject into README
