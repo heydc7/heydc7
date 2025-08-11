@@ -22,7 +22,7 @@ jobs:
 
       - name: Fetch index.json
         run: |
-          FEED_URL="https://dhanraj.pages.dev/index.json"  # or https://dhanrajchavan.com/index.json
+          FEED_URL="https://dhanraj.pages.dev/index.json"
           curl -sSL "$FEED_URL" -o /tmp/index.json
 
       - name: Build markdown blocks
@@ -31,7 +31,7 @@ jobs:
           jq 'if type=="object" and has("items") then .items else . end' /tmp/index.json > /tmp/items.json
 
           mklist () {
-            # Generic list for blog/projects: Title → Link
+            # Generic list for blog/projects
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
               [ .[] 
@@ -47,16 +47,20 @@ jobs:
           }
 
           mklist_writeups () {
-            # WRITEUPS: show only the folder slug, but hyperlink to the folder root
+            # WRITEUPS: keep latest-first from feed, dedupe without sorting
             local path="$1" limit="$2"
             jq -r --arg path "$path" --argjson limit "$limit" '
-              [ .[]
+              reduce ( .[] 
                 | select((.permalink // .url) | tostring | contains($path))
                 | { slug: ((.permalink // .url) | capture(".*/writeups/(?<slug>[^/]+)/") | .slug),
                     link: ((.permalink // .url) | capture("(?<link>.*?/writeups/[^/]+)/") | .link)
                   }
-              ]
-              | unique_by(.slug)
+              ) as $item ( []; 
+                if any(.slug == $item.slug) 
+                then . 
+                else . + [$item] 
+                end
+              )
               | .[0:$limit]
               | map("* [\(.slug)](\(.link)/)")
               | join("\n")
