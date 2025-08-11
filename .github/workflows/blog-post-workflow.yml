@@ -1,20 +1,65 @@
-name: Latest blog post workflow
+name: Latest content via JSON
 on:
-  schedule: # Run workflow automatically
-    - cron: '0 * * * *' # Runs every hour, on the hour
-  workflow_dispatch: # Run workflow manually (without waiting for the cron to be called), through the GitHub Actions Workflow page directly
+  schedule:
+    - cron: "0 * * * *"   # hourly
+  workflow_dispatch:
 permissions:
-  contents: write # To write the generated contents to the readme
+  contents: write
 
 jobs:
-  update-readme-with-blog:
-    name: Update this repo's README with latest blog posts
+  update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Pull in dev.to posts
-        uses: gautamkrishnar/blog-post-workflow@v1
+      - uses: actions/checkout@v4
+
+      - name: Fetch index.json
+        run: |
+          FEED_URL="https://dhanraj.pages.dev/index.json"  # or https://dhanrajchavan.com/index.json
+          curl -sSL "$FEED_URL" -o /tmp/index.json
+
+      - name: Build markdown blocks
+        run: |
+          # Normalize: support JSON Feed (.items) or PaperMod array
+          jq 'if type=="object" and has("items") then .items else . end' /tmp/index.json > /tmp/items.json
+
+          mklist () {
+            local path="$1" limit="$2"
+            jq -r --arg path "$path" --argjson limit "$limit" '
+              # Keep only items under the path
+              [ .[] 
+                | select((.permalink // .url) | tostring | contains($path))
+                | {title: (.title // .name),
+                   link:  (.permalink // .url),
+                   date:  (.date_published // .date // .publishDate // .dateFormatted // .lastmod // "")
+                  }
+              ]
+              # Sort by date desc if available
+              | sort_by(.date) | reverse | .[0:$limit]
+              | map("* [\(.title)](\(.link))")
+              | join("\n")
+            ' /tmp/items.json
+          }
+
+          mklist "/blog/" 10      > /tmp/blog.md
+          mklist "/writeups/" 10  > /tmp/writeups.md
+          mklist "/projects/" 10  > /tmp/projects.md
+
+      - name: Inject into README
+        run: |
+          inject () {
+            local tag="$1" file="$2"
+            awk -v tag="$tag" -v repl="$(sed 's/[&/\]/\\&/g' "$file")" '
+              BEGIN{start="<!-- " tag ":START -->"; end="<!-- " tag ":END -->"}
+              { if ($0==start){print; print repl; skip=1; next}
+                if ($0==end){skip=0}
+                if (!skip) print
+              }' README.md > README.new && mv README.new README.md
+          }
+          inject "BLOG"     /tmp/blog.md
+          inject "WRITEUPS" /tmp/writeups.md
+          inject "PROJECTS" /tmp/projects.md
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          feed_list: "https://dhanraj.pages.dev/index.xml"
-          max_post_count: 10
+          commit_message: "chore(readme): update blog/writeups/projects from index.json"
