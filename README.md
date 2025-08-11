@@ -18,21 +18,15 @@ I am a self-starter and quick learner, passionate about CyberSecurity.
 - 👨🏻‍💻 Ex-Indie App Developer 
 
 ## My latest blogs
-<!-- BLOG-POST-LIST:START -->
-- [AWS Certified Cloud Practitioner](https://dhanrajchavan.com/writeups/aws/cloudpractitioner/)
-- [CryptoPad: 3-Party Asynchronous Communication](https://dhanrajchavan.com/projects/cryptopad/)
-- [EagleEye: Security Alert System](https://dhanrajchavan.com/projects/eagleeye/)
-- [ProxLink](https://dhanrajchavan.com/projects/proxlink/)
-- [VIVID CTF](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/intro/)
-- [Day 1: Jeopardy-style CTF](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day1/)
-- [Day 2: Red Team](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day2/)
-- [Day 3: Blue Team](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day3/)
-- [Day 4: King of the Hill](https://dhanrajchavan.com/writeups/vivid-ctf-finals-2024/day4/)
-- [EJPT Notes](https://dhanrajchavan.com/writeups/ejpt/notes/)
-<!-- BLOG-POST-LIST:END -->
+<!-- BLOG:START -->
+<!-- BLOG:END -->
+
+## My Writeups
+<!-- WRITEUPS:START -->
+<!-- WRITEUPS:END -->
 
 ## My Projects
-
-
+<!-- PROJECTS:START -->
+<!-- PROJECTS:END -->
 
 
