@@ -1,4 +1,3 @@
-<a href="https://www.youtube.com/codingpotter"><img align="center" src="https://raw.githubusercontent.com/dhanrajdc7/dhanrajdc7/main/images/back.png"/></a>
 
 ### Hi there 👋 I'm Dhanraj
 
