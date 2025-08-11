@@ -27,16 +27,15 @@ I am a self-starter and quick learner, passionate about CyberSecurity.
 
 ## My Writeups
 <!-- WRITEUPS:START -->
-* [SunshineCTF23: Dill (Reversing)](https://dhanrajchavan.com/writeups/sunshine-ctf-2023/reversing/)
-* [SunshineCTF23: DDR (Scripting)](https://dhanrajchavan.com/writeups/sunshine-ctf-2023/scripting/)
-* [SunshineCTF23: BeepBoop Blog & Hotdog Stand (Web)](https://dhanrajchavan.com/writeups/sunshine-ctf-2023/web/)
-* [SunshineCTF23: BeepBoop (Cryptography)](https://dhanrajchavan.com/writeups/sunshine-ctf-2023/crypto/)
-* [Repo Recon (Web)](https://dhanrajchavan.com/writeups/snyk-ctf-2023/repo-recon/)
-* [Protecting Camp (Web)](https://dhanrajchavan.com/writeups/snyk-ctf-2023/protecting-camp/)
-* [Intro to DVWA](https://dhanrajchavan.com/writeups/dvwa/intro/)
-* [Intro](https://dhanrajchavan.com/writeups/security-plus/intro/)
-* [Improvement Notes](https://dhanrajchavan.com/writeups/security-plus/notes/)
-* [Chapter 5: Governance, Risk, and Compliance](https://dhanrajchavan.com/writeups/security-plus/chapter5/)
+* aws
+* dvwa
+* ejpt
+* pentest-plus
+* security-plus
+* securityx
+* snyk-ctf-2023
+* sunshine-ctf-2023
+* vivid-ctf-finals-2024
 <!-- WRITEUPS:END -->
 
 ## My Projects
