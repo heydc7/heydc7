@@ -31,7 +31,7 @@ jobs:
 
       - name: Build markdown blocks
         run: |
-          # Normalize JSON: handle PaperMod array or JSON Feed
+          # Normalize JSON
           jq 'if type=="object" and has("items") then .items else . end' /tmp/index.json > /tmp/items.json
 
           mklist () {
@@ -50,11 +50,27 @@ jobs:
             ' /tmp/items.json
           }
 
+          mklist_writeups () {
+            local path="$1" limit="$2"
+            jq -r --arg path "$path" --argjson limit "$limit" '
+              [ .[]
+                | select((.permalink // .url) | tostring | contains($path))
+                | .permalink // .url
+                | capture(".*/writeups/(?<slug>[^/]+)/")
+                | .slug
+              ]
+              | unique
+              | .[0:$limit]
+              | map("* \(. )")
+              | join("\n")
+            ' /tmp/items.json
+          }
+
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "blog" ]; then
             mklist "/blog/" 10 > /tmp/blog.md
           fi
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "writeups" ]; then
-            mklist "/writeups/" 10 > /tmp/writeups.md
+            mklist_writeups "/writeups/" 10 > /tmp/writeups.md
           fi
           if [ "${{ github.event.inputs.section }}" = "all" ] || [ "${{ github.event.inputs.section }}" = "projects" ]; then
             mklist "/projects/" 10 > /tmp/projects.md
