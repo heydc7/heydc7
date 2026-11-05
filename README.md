@@ -1,8 +1,6 @@
 
 ### Hi there 👋 I'm Dhanraj
 
-[![Linkedin Badge](https://img.shields.io/badge/-heydc7-blue?style=plastic-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/heydc7/)](https://www.linkedin.com/in/heydc7/)
-[![Twitter Badge](https://img.shields.io/badge/-heydc7-blue?style=plastic-square&logo=twitter&logoColor=white&link=https://www.twitter.com/heydc7)](https://www.twitter.com/heydc7)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fheydc7%2F&label=Visitors&countColor=%23263759&style=flat)
 
 
